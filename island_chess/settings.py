@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'island_chess.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DB_NAME',
-        'USER': 'DB_USER',
-        'PASSWORD': 'DB_PASSWORD',
-        'HOST': 'DB_HOST',
-        'PORT': 'DB_POST',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Y7H7fsnPdwD4uhcXXPGr',
+        'HOST': 'containers-us-west-47.railway.app',
+        'PORT': '6492',
     }
 }
 

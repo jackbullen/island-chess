@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>List of Openings</h1>
+
+<ul>
+    {% for opening in openings %}
+        <li><a href="{% url 'opening_detail' opening.pk %}">{{ opening.name }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

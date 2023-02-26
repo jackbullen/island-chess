@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ repertoire.name }}</h1>
+<p>{{ repertoire.description }}</p>
+<h2>Openings</h2>
+<ul>
+    {% for opening in repertoire.opening_set.all %}
+    <li>
+        <a href="{% url 'opening_detail' opening.pk %}">{{ opening.name }} ({{ opening.eco }})</a>
+        <a href="{% url 'opening_delete' opening.pk %}" onclick="return confirm('Are you sure you want to delete this opening?')"><i class="fas fa-trash"></i> </a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_opening' repertoire.pk %}">Create New Opening</a>
+{% endblock %}

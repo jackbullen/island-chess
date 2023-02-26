@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="courses-container">
+  <h1 id="course-title">{{ chapter.name }}</h1>
+
+<div id="course-list">
+    <div class="back-nav-button-container">
+        <button class="back-nav-button"><i class="fas fa-arrow-left"></i></button>
+      </div>
+  <h2 id="chapter-heading">Variations</h2>
+  <ul id="course-list">
+    {% for variation in variations %}
+    <li class="course-item">
+       
+        <a href="{% url 'variation_detail' variation.pk %}" class='variation-name'>{{ variation.name }}</a>
+        <a href="{% url 'variation_learn' variation.pk %}" class='course-link course-practice-link'><i class="fas fa-graduation-cap"></i></a>
+        <a href="{% url 'variation_practice' variation.pk %}" class="course-practice-link">Practice</a>
+
+    </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'variation_create' chapter.pk %}" id="create-course-link">Create New Variation</a>
+</div>
+</div>
+{% endblock %}

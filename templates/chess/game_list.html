@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Chess Games</h1>
+  <ul>
+    {% for game in games %}
+      <li><a href="{% url 'chess:game_detail' game.pk %}">{{ game.white }} vs {{ game.black }}</a></li>
+    {% empty %}
+      <li>No games.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

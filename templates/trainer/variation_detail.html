@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<meta name="name" content={{ variation.name }}/>
+<meta name="fen" content={{ variation.fen }}/>
+
+
+<h1>{{ variation.name }}</h1>
+<div id="board" style="width: 400px"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+<script src="{% static 'js/chessboard.js' %}"></script>
+<script src="{% static 'js/trainer.js' %}" pgn="{{ variation.pgn }}"></script>
+{% endblock %}
+

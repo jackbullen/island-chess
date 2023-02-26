@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ game.white }} vs {{ game.black }}</h1>
+  <ul>
+    <li>Event: {{ game.event }}</li>
+    <li>Site: {{ game.site }}</li>
+    <li>Date: {{ game.date }}</li>
+    <li>Round: {{ game.round }}</li>
+    <li>Result: {{ game.result }}</li>
+    <li>ECO: {{ game.eco }}</li>
+  </ul>
+  <h2>Moves</h2>
+  <ul>
+    {% for move in game.moves.all %}
+      <li>{{ move.move_number }}. {{ move.san }}</li>
+    {% empty %}
+      <li>No moves.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

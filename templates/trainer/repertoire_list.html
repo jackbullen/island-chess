@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Repertoires</h1>
+  <ul>
+    {% for repertoire in repertoires %}
+      <li>
+        <a href="{% url 'repertoire_detail' repertoire.pk %}">{{ repertoire.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <!-- Add link to create new repertoire -->
+<a href="{% url 'create_repertoire' %}">Create New Repertoire</a>
+
+{% endblock %}

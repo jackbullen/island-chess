@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ opening.name }} ({{ opening.eco }})</h1>
+<ul>
+    {% for line in lines %}
+    <li>
+        <a href="{% url 'line_detail' line.pk %}">{{ line.name }}</a>
+        <a href="{% url 'practice' line.pk %}"><i class="fas fa-graduation-cap"></i></a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_line' opening.pk %}">Create New Line</a>
+{% endblock %}

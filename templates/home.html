@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h1>Welcome back, {{ user.username }}</h1>
+    <h2>News, Training Updates, and Notices</h2>
+    <p>Here's the latest news and updates to keep you informed:</p>
+    <ul>
+      <li>Upcoming training session: Improving your endgame</li>
+      <li>New chess club opening in downtown</li>
+      <li>Reminder: Monthly tournament next week</li>
+    </ul>
+    <h2>Opportunities</h2>
+    <p>Take advantage of these opportunities to improve your game:</p>
+    <ul>
+      <li>Online chess lessons with Grandmaster X</li>
+      <li>Join a local chess club and play against other enthusiasts</li>
+      <li>Participate in online chess tournaments and win prizes</li>
+    </ul>
+    <h2>Personalized Information</h2>
+    <p>Here's some information tailored to your interests:</p>
+    <ul>
+      <li>Suggested reading: "My 60 Memorable Games" by Bobby Fischer</li>
+      <li>Upcoming chess events in your area</li>
+      <li>Analysis of your recent games and suggestions for improvement</li>
+    </ul>
+  {% else %}
+    <h1>Welcome to Island Chess</h1>
+    <p>Chess Island is a community for chess enthusiasts of all levels. Whether you're just starting out or you're a seasoned player, you'll find a welcoming environment where you can improve your skills and make new friends.</p>
+    <h2>Features and Benefits</h2>
+    <ul>
+      <li>Play chess against other players online</li>
+      <li>Join a local chess club and play in tournaments</li>
+      <li>Learn from Grandmasters with online lessons</li>
+      <li>Participate in online chess tournaments and win prizes</li>
+      <li>Get personalized tips and analysis of your games</li>
+    </ul>
+    <p>Join now and start improving your chess skills!</p>
+    <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+  {% endif %}
+{% endblock %}

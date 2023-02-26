@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="courses-container">
+  <h1 id="course-title">{{ course.name }}</h1>
+
+<div id="course-list">
+  <div class="back-nav-button-container">
+    <button class="back-nav-button"><i class="fas fa-arrow-left"></i></button>
+  </div>
+  <h2 id="chapter-heading">Chapters</h2>
+  <ul id="course-list">
+    
+    {% for chapter in chapters %}
+    <li class="course-item">
+      {% comment %} <div class="course-info"> {% endcomment %}
+          <a href="{% url 'chapter_detail' chapter.pk %}" class="chapter-name">{{ chapter.name }}</a>
+          <a href="{% url 'chapter_learn' chapter.pk %}" class='course-practice-link'><i class="fas fa-graduation-cap"></i></a>
+          <a href="{% url 'chapter_practice' chapter.pk %}" class="course-practice-link">Practice</a>
+          
+          
+      {% comment %} </div> {% endcomment %}
+    </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'chapter_create' course.pk %}" id="create-course-link">Create New Chapter</a>
+</div>
+</div>
+{% endblock %}

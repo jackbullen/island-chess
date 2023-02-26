@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="practice-container">
+    
+    <h1>{{ course.name }}</h1>
+    <div class="back-nav-button-container">
+      <button class="back-nav-button"><i class="fas fa-arrow-left"></i></button>
+    </div>
+    <div id="board-pgn-container" style="width:100%; display: flex; flex-direction: row; align-items: center;">
+
+
+        <div class="course-container">
+            {% comment %} <div class="tab-button" onclick="toggleTab()">☰</div> {% endcomment %}
+            <h2>{{ chapter.name }}</h1>
+            <div id="course-info">
+              <p id="course-author">{{ course.author }}</p>
+              <p id="course-date">{{ course.date }}</p>
+            </div>
+            <div class="tab-content">
+              <div id="chapter-list">
+                <ul>
+                  {% for chapter in chapters %}
+                    <li>
+                      <a href="{% url 'chapter_practice' chapter.pk %}">{{ chapter.name }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+        <div id="board-container" style="width:400px; display: flex; flex-direction: column; align-items: center;">
+            <div id="myBoard" style="width: 400px"></div>
+            <div id="controls-container" style="display: flex; margin-top: 10px;">
+                <button id="back-button" style="margin-right: 10px;">
+                <img src="{% static 'img/back.png' %}" alt="Back">
+                </button>
+                <button id="forward-button">
+                <img src="{% static 'img/forward.png' %}" alt="Forward">
+                </button>
+            </div>
+            <div id="status-container" style="display: flex; margin-top: 10px;">
+                <div id="check-indicator" style="margin-right: 10px; font-weight: bold; color: red;"></div>
+                <div id="game-result" style="font-weight: bold;"></div>
+            </div>
+        </div>
+
+        <div id="pgn-cont">
+          <textarea id="pgn-text"></textarea>
+      </div>
+          
+    </div>
+
+    {% comment %} {% for variation in variations %}
+    <li>
+        <a href="{% url 'variation_detail' variation.pk %}">{{ variation.pgn }}</a>
+    </li>
+    {% endfor %} {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js" integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+    
+    <script src="{% static 'js/chessboard.js' %}"></script>
+    <script src="{% static 'js/practice.js' %}"></script>
+  </div>
+{% endblock %}
+
+
+

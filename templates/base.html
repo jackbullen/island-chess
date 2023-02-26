@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Island Chess</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/board.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chessboard.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var backButton = document.querySelector('.back-nav-button');
+        backButton.addEventListener('click', function() {
+          window.history.back();
+        });
+      });
+    </script>
+    <header>
+      <nav>
+          <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'board' %}">Play</a></li>
+            <li><a href="{% url 'openings' %}">Openings</a></li>
+            <li><a href="{% url 'games' %}">Games</a></li>
+            <li><a href="{% url 'course_list' %}">Learn</a></li>
+            {% comment %} <li><a href="{% url 'repertoire_list' %}">Train</a></li> {% endcomment %}
+          </ul>
+          <ul>
+            {% if user.is_authenticated %}
+            <li><a href="/profile"><i class="fas fa-user"></i></a></li>
+            <li><a href="/settings"><i class="fas fa-cog"></i></a></li>            
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+          </ul>
+      </nav>
+
+    </header>
+    
+  </head>
+  <body>
+    <main>
+
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+      
+      <p>Copyright © 2023 Chess Island</p>
+    </footer>
+  </body>
+</html>

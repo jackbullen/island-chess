@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ line.name }}</h1>
+<ul>
+    {% for variation in variations %}
+    <li><a href="{% url 'variation_detail' variation.pk %}">{{ variation.name }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_variation' line.pk %}">Create New Variation</a>
+{% endblock %}

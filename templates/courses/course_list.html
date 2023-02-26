@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div id="courses-container">
+    <h1 id="courses-heading">Courses</h1>
+    <ul id="course-list">
+      {% for course in courses %}
+        <li class="course-item">
+            <a href="{% url 'course_detail' course.pk %}" class="course-name">{{ course.name }}</a>
+            <a href="{% url 'learn' course.pk %}" class='course-practice-link'><i class="fas fa-graduation-cap"></i></a>
+            <a href="{% url 'practice' course.pk %}" class="course-practice-link">Practice</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'course_create' %}" id="create-course-link">Create New Course</a>
+  </div>
+
+{% endblock %}

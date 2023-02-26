@@ -1,1 +1,1 @@
-web: python manage.py makemigrations && python manage.py migrate && gunicorn island-chess.wsgi
+web: python manage.py makemigrations && python manage.py migrate && gunicorn island_chess.wsgi
